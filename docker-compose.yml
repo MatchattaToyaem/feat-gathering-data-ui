@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  app:
+    container_name: "feet-arch-estimation-web"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args: 
+        END_POINTS: http://192.168.9.21:8080/raw_volunteers
+    ports:
+      - 3000:80
+    environment:
+      REACT_APP_END_POINTS: http://localhost:8080/raw_volunteers

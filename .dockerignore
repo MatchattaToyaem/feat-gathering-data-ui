@@ -1,0 +1,7 @@
+/node_mobules
+/ios
+/build
+package-lock.json
+.dockerignore
+Dockerfile
+Dockerfile.prod

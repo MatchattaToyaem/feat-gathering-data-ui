@@ -1,0 +1,30 @@
+# runtime: nodejs
+# env: flex
+
+# # This sample incurs costs to run on the App Engine flexible environment.
+# # The settings below are to reduce costs during testing and are not appropriate
+# # for production use. For more information, see:
+# # https://cloud.google.com/appengine/docs/flexible/nodejs/configuring-your-app-with-app-yaml
+# manual_scaling:
+#   instances: 1
+# resources:
+#   cpu: 1
+#   memory_gb: 0.5
+#   disk_size_gb: 10
+runtime: nodejs12
+env: standard
+# service: prod
+
+handlers:
+  - url: /static
+    static_dir: build/static
+
+  - url: /(.*\.(json|ico|js))$
+    static_files: build/\1
+    upload: build/.*\.(json|ico|js)$
+
+  - url: .*
+    static_files: build/index.html
+    upload: build/index.html
+env_variables:
+    REACT_APP_END_POINTS: "https://feet-arch-estimation.herokuapp.com/raw_volunteers"

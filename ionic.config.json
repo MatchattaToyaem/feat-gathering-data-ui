@@ -1,0 +1,7 @@
+{
+  "name": "feet-arch-estimation",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

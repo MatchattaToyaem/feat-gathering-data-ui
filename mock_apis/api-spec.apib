@@ -1,0 +1,132 @@
+FORMAT: 1A
+
+# Volunteer Api Spec
+In this api, there are four requests, which are `POST` `GET` `PUT` `DELETE` and they will use to organize volunteer data and 
+collect sample from group of volunteers.  
+
+# POST /volunteers
+Collect data from volunteer that require volunteer __name, fore foot position, 
+metatarsalgia position, middle foot position, heel position, shoe size, real foot arc length in cm,
+foot sole image in base64 format, and side foot image in base64 format.__ 
+
++ Request Volunteer data
+
+    + Headers
+        application/json
+    
+    + Body
+        {
+            "collectorEmail": "email"
+            "gender" : "f",
+            "shoeSize": 42.0,
+            "manualMeasurement":  {
+                "lefts": {"footArchHeight": "1",
+                         "foreWidth": "1",
+                         "heelToFore": "1",
+                         "heelToMetatarsalgia": "1",
+                         "heelToMiddle": "1",
+                         "heelWidth": "1",
+                         "middleWidth": "1"
+                },
+                "rights": {"footArchHeight": "1",
+                         "foreWidth": "1",
+                         "heelToFore": "1",
+                         "heelToMetatarsalgia": "1",
+                         "heelToMiddle": "1",
+                         "heelWidth": "1",
+                         "middleWidth": "1"
+                }
+            },
+            "rawData":{
+                "left":{
+                    "sole": [
+                        {
+                         "image": "data/png",
+                         "fore": {"x": 0, "y": 0},
+                         "heel": {"x": 0, "y": 0},
+                         "metatarsalgia": {"x": 0, "y": 0},
+                         "middle":  {"x": 0, "y": 0}
+                        }
+                    ],
+                    "side": [
+                        {
+                         "image": "data/png",
+                         "ankleSprain": {"x": 0, "y": 0}
+                        }
+                    ]
+                }
+                "right":{
+                    "sole": [
+                        {
+                         "image": "data/png",
+                         "fore": {"x": 0, "y": 0},
+                         "heel": {"x": 0, "y": 0},
+                         "metatarsalgia": {"x": 0, "y": 0},
+                         "middle":  {"x": 0, "y": 0}
+                        }
+                    ],
+                    "side": [
+                        {
+                         "image": "data/png",
+                         "ankleSprain": {"x": 0, "y": 0}
+                        }
+                    ]
+                }
+            }
+        }
+
++ Response 201 (json/application)
+
+    + Headers
+        application/json
+    
+    + Body
+        {
+            "id": 'unique id'
+        }
+
+## GET /volunteers
+
+All number in response use CM as unit
+
++ Response 200 (json/application)
+
+    + Headers
+        application/json
+    
+    + Body
+        {
+            "id": "unique id",
+            "name": "volunteer name",
+            "leftFoot": {
+                "soleImage": "base64, image",
+                "sideImage": "base64, image",
+                "footLength": 30.0,
+                "heelToFore": 30.0,
+                "heelToMid": 30.0,
+                "heelToNose": 30.0,
+                "foreWidth": 30.0,
+                "midWidth": 30.0,
+                "heelWidth": 30.0,
+                "footHeight": 30.0,
+                "footArc": 30.0,
+            },
+            "rightFoot": {
+                "soleImage": "base64, image",
+                "sideImage": "base64, image",
+                "footLength": 30.0,
+                "heelToFore": 30.0,
+                "heelToMid": 30.0,
+                "heelToNose": 30.0,
+                "foreWidth": 30.0,
+                "midWidth": 30.0,
+                "heelWidth": 30.0,
+                "footHeight": 30.0,
+                "footArc": 30.0,
+            },
+            "created": "timestamp with out timezone"
+        }
+
+    
+
+

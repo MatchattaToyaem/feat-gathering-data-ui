@@ -1,0 +1,10 @@
+.center-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-google{
+    max-width: 35px;
+    max-height: 35px;
+}

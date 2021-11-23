@@ -1,0 +1,5 @@
+{
+  "client_id": "14745869175-kg639d7vqdi4e6ebjnhu5s6q9pgnj0dm.apps.googleusercontent.com",
+  "test_end_point": "http://localhost:8080/raw_volunteers",
+  "prod_end_point": "http://34.72.233.114:8080/raw_volunteers"
+}
